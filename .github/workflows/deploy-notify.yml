@@ -78,7 +78,7 @@ jobs:
           SECONDS=$((BUILD_TIME % 60))
           echo "DURATION=${MINUTES}m ${SECONDS}s" >> $GITHUB_OUTPUT
 
-            - name: Notify Telegram
+      - name: Notify Telegram
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -90,9 +90,21 @@ jobs:
             STATUS_TEXT="Failed"
           fi
 
-          COMMIT_MSG=$(git log -1 --pretty=%B)
+          COMMIT_MSG=$(git log -1 --pretty=%B | head -n 1)
+          
+          MESSAGE="Deployment ${STATUS_TEXT}
 
-          MESSAGE="Deployment ${STATUS_TEXT}\nRepository: ${{ github.repository }}\nBranch: ${{ github.ref_name }}\nAuthor: ${{ github.actor }}\nBuild Time: ${{ steps.build_time.outputs.DURATION }}\nImage Size: ${{ steps.image_size.outputs.SIZE_MB }} MB\nCoverage: ${{ steps.tests.outputs.COVERAGE }}\nMessage: ${COMMIT_MSG}"
+Repository: ${{ github.repository }}
+Branch: ${{ github.ref_name }}
+Author: ${{ github.actor }}
+Commit: ${{ github.sha }}
+
+Build Stats:
+Build Time: ${{ steps.build_time.outputs.DURATION }}
+Image Size: ${{ steps.image_size.outputs.SIZE_MB }} MB
+Coverage: ${{ steps.tests.outputs.COVERAGE }}
+
+Message: ${COMMIT_MSG}"
 
           curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -H "Content-Type: application/json" \
