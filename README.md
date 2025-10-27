@@ -15,6 +15,7 @@ Automated CI/CD deployment notifications with build metrics.
 2. Add GitHub secrets (see Setup section)
 3. Push to main branch
 4. Receive notifications!
+5. Thammineni Medari Nikilesh Kumar
 
 ## Local Testing
 ```bash
@@ -37,6 +38,7 @@ Every deployment sends a notification with:
 - Test coverage
 - Commit information
 - Author details
+--
 
 ---
 
