@@ -93,18 +93,18 @@ jobs:
           COMMIT_MSG=$(git log -1 --pretty=%B | head -n 1)
           
           MESSAGE="Deployment ${STATUS_TEXT}
-
-Repository: ${{ github.repository }}
-Branch: ${{ github.ref_name }}
-Author: ${{ github.actor }}
-Commit: ${{ github.sha }}
-
-Build Stats:
-Build Time: ${{ steps.build_time.outputs.DURATION }}
-Image Size: ${{ steps.image_size.outputs.SIZE_MB }} MB
-Coverage: ${{ steps.tests.outputs.COVERAGE }}
-
-Message: ${COMMIT_MSG}"
+          
+          Repository: ${{ github.repository }}
+          Branch: ${{ github.ref_name }}
+          Author: ${{ github.actor }}
+          Commit: ${{ github.sha }}
+          
+          Build Stats:
+          Build Time: ${{ steps.build_time.outputs.DURATION }}
+          Image Size: ${{ steps.image_size.outputs.SIZE_MB }} MB
+          Coverage: ${{ steps.tests.outputs.COVERAGE }}
+          
+          Message: ${COMMIT_MSG}"
 
           curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -H "Content-Type: application/json" \
