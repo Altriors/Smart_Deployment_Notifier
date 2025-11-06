@@ -1,4 +1,4 @@
-# 🚀 Smart Deployment Notifier
+#  Smart Deployment Notifier
 
 Automated CI/CD deployment notifications with build metrics.
 
