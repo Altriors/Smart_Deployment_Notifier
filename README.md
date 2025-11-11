@@ -38,7 +38,9 @@ Every deployment sends a notification with:
 - Docker image size
 - Test coverage
 - Commit information
-- Author details
+- 
+
+
 --
 
 ---
