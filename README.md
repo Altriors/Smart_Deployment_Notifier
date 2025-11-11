@@ -1,6 +1,7 @@
 #  Smart Deployment Notifier
 
 Automated CI/CD deployment notifications with build metrics.
+fuck you
 
 ## Features
 -  Automated deployment notifications
