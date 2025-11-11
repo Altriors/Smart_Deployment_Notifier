@@ -4,10 +4,10 @@ Automated CI/CD deployment notifications with build metrics.
 
 ## Features
 -  Automated deployment notifications
-- 📊 Build time tracking
-- 🐳 Docker image size reporting
-- 🧪 Test coverage metrics
-- 📱 Slack & Telegram integration
+-  Build time tracking
+-  Docker image size reporting
+-  Test coverage metrics
+-  Slack & Telegram integration
 
 ## Quick Start
 
