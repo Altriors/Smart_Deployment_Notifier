@@ -10,7 +10,7 @@ Automated CI/CD deployment notifications with build metrics.
 -  Test coverage metrics
 -  Slack & Telegram integration
 
-## Quick Start
+## Quick Start bull cow
 
 1. Clone the repository
 2. Add GitHub secrets (see Setup section)
